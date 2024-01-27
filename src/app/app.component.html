@@ -1,23 +1,29 @@
 <section class="card">
+  <!-- Event handler for dropping items on the left box -->
   <div
     class="box left-box"
     (drop)="onDrop($event, 'left')"
     (dragover)="allowDrop($event)"
   >
     <h3>Unassociated</h3>
-    <hr>
+    <hr />
+    <!-- Looping through the images in the left box -->
     <div
       class="image-container container-left"
       *ngFor="let image of leftBoxImages"
     >
       <span class="number number-left">{{ image.number }}</span>
+
+      <!--disable the checkbox if the user tick one of the checkboxes,
+         only enable the current selected one -->
       <input
         type="checkbox"
         class="image-checkbox"
-        [disabled]="checkedImages===1 && !image.checked"
+        [disabled]="checkedImages === 1 && !image.checked"
         [(ngModel)]="image.checked"
         (click)="addToCheckedItems($event)"
       />
+      <!--change background if the checkbox ticketed-->
       <img
         [ngStyle]="image.checked ? { background: '#abd7e5' } : {}"
         [src]="image.url"
@@ -27,17 +33,17 @@
       />
     </div>
   </div>
-
+  <!-- Event handler for dropping items on the right box -->
   <div
     class="box right-box"
     (drop)="onDrop($event, 'right')"
     (dragover)="allowDrop($event)"
   >
     <h3>Associated</h3>
-    <hr>
+    <hr />
     <div class="box-card">
       <h4>{{ "current load " | uppercase }}: 5554332111</h4>
-      <hr>
+      <hr />
       <div class="red-box">
         <mat-icon>help</mat-icon>
         <span class="saperator">|</span>
@@ -49,21 +55,23 @@
         {{ "Unassociated Document" | titlecase }}
       </div>
 
+      <!-- Looping through the images in the right box -->
+
       <div
         class="image-container container-right"
         *ngFor="let image of rightBoxImages"
       >
         <span class="number number-right">{{ image.number }}</span>
+
+        <!--disable the checkbox 
+          (the user can only drag the images from left to the right side )-->
         <input
           type="checkbox"
           class="image-checkbox"
           disabled="true"
           [(ngModel)]="image.checked"
         />
-        <img
-          [src]="image.url"
-          alt="document image"
-        />
+        <img [src]="image.url" alt="document image" />
       </div>
     </div>
   </div>

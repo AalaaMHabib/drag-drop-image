@@ -1,4 +1,6 @@
 @import "../styles/abstracts/index";
+
+// Styles for a card
 .card {
   border: 5px solid $primary-color;
   min-height: 95vh;
@@ -10,54 +12,78 @@
   }
 }
 
+// Styles for a box
 .box {
-  @include border-box;
-  padding: $card-padding;
+  @include border-box; // Include styles for a box with a border box model
+  padding: $card-padding; 
 }
+
+// Styles for an image container
 .image-container {
   @include image-container;
 }
+
+// Styles for the left container
 .container-left {
   width: 25%;
 }
+
+// Styles for the right container
 .container-right {
   width: 20%;
 }
+
+// Styles for a number element
 .number {
-  position: absolute;
-  border: 1px solid $secondary-color;
-  background-color: $secondary-color;
-  color: #fff;
+  position: absolute; // Position the number element absolutely
+  border: 1px solid $secondary-color; // Border color for the number element
+  background-color: $secondary-color; // Background color for the number element
+  color: #fff; // Text color for the number element
 }
+
+// Styles for the number element in the left container
 .number-left {
   bottom: 4%;
   left: 3%;
   padding: 5px;
 }
+
+// Styles for the number element in the right container
 .number-right {
   position: absolute;
   bottom: 12%;
   left: 7%;
 }
+
+// Styles for an image checkbox
 .image-checkbox {
-  position: absolute;
+  position: absolute; // Position the image checkbox absolutely
 }
+
+// Styles for images
 img {
-  border: 1px solid $secondary-color;
-  padding: $image-padding;
-  margin: $image-margin;
+  border: 1px solid $secondary-color; // Border color for images
+  padding: $image-padding; // Padding for images
+  margin: $image-margin; // Margin for images
 }
+
+// Styles for the left box
 .left-box {
-  flex: 2 1 $left-box-width;
-  background-color: #fff;
-  margin-right: 1%;
+  flex: 2 1 $left-box-width; // Flex properties for the left box
+  background-color: #fff; // Background color for the left box
+  margin-right: 1%; // Right margin for the left box
+
   img {
-    width: 80%;
+    width: 80%; // Width of images within the left box
   }
 }
+
+// Styles for a separator
 .saperator {
-  margin: 0 10px;
+  margin: 0 10px; // Margin for the separator
 }
+
+// Styles for the right box
 .right-box {
   flex: 1 1 $right-box-width;
   background-color: #fff;
@@ -66,6 +92,8 @@ img {
     width: 60%;
   }
 }
+
+// Styles for a red box
 .red-box {
   background: $error-color;
   color: #fff;
@@ -74,6 +102,7 @@ img {
   @include flex-center;
 }
 
+// Styles for an outlined red box
 .outline-red-box {
   border: 1px solid $error-color;
   color: $error-color;
@@ -82,6 +111,7 @@ img {
   @include flex-center;
 }
 
+// Styles for a box card
 .box-card {
   border: 1px solid #abd7e5;
   background: #fff;
@@ -89,27 +119,33 @@ img {
   @include box-shadow(#abd7e5);
 }
 
+// Styles for h4 headings
 h4 {
   color:gray;
   font-weight: 600;
 }
 
-@media (max-width: $breakpoint) {
+// Media query for smaller screens
+@media (max-width: $breakpoint){
+  // Styles for the left box when the screen size is smaller
   .left-box {
     flex: 1 1 100%;
     margin: 0;
   }
 
+  // Styles for the right box when the screen size is smaller
   .right-box {
     flex: 1 1 100%;
     margin: 0;
   }
 
+  // Styles for images within the right box when the screen size is smaller
   .right-box img {
-    width: 30% !important;
+    width: 30% !important; // Width of images within the right box (important to override other rules)
   }
 
+  // Styles for the number element when the screen size is smaller
   .number {
-    padding: 0px;
+    padding: 0px; // Padding for the number element
   }
 }

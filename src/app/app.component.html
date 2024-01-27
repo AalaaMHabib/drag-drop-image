@@ -13,10 +13,12 @@
       <input
         type="checkbox"
         class="image-checkbox"
+        [disabled]="checkedImages===1 && !image.checked"
         [(ngModel)]="image.checked"
+        (click)="addToCheckedItems($event)"
       />
       <img
-      [ngStyle]="image.checked ? { background: '#999' } : {}"
+        [ngStyle]="image.checked ? { background: '#abd7e5' } : {}"
         [src]="image.url"
         alt="document image"
         draggable="true"
@@ -49,6 +51,11 @@
         *ngFor="let image of rightBoxImages"
       >
         <span class="number number-right">{{ image.number }}</span>
+        <input
+          type="checkbox"
+          class="image-checkbox"
+          [(ngModel)]="image.checked"
+        />
         <img
           [src]="image.url"
           alt="document image"

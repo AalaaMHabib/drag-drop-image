@@ -9,17 +9,18 @@ import { IImage } from './models/image.interface';
 })
 export class AppComponent implements OnInit {
   title = 'drag-drop-images';
+  // Array of images in the left box
+  leftBoxImages: IImage[] = [];
+  // Array of images in the right box
+  rightBoxImages: IImage[] = [];
+  checkedImages: number = 0;
+
   constructor(private _appService: AppService) {}
 
   ngOnInit(): void {
     this.leftBoxImages = this._appService.leftBoxImages;
     this.rightBoxImages = this._appService.rightBoxImages;
   }
-  
-  // Array of images in the left box
-  leftBoxImages: IImage[] = [];
-  // Array of images in the right box
-  rightBoxImages: IImage[] = [];
 
   // Event handler for drag start
   onDragStart(
@@ -31,6 +32,9 @@ export class AppComponent implements OnInit {
       // Set image data in the dataTransfer object
       event.dataTransfer?.setData('text/plain', image.url);
       event.dataTransfer?.setData('text/number', image.number.toString());
+    }
+    if(!image.checked){
+      alert('Please check the box to allow dragging the image from left to right');
     }
   }
 
@@ -50,9 +54,16 @@ export class AppComponent implements OnInit {
       if (image) {
         this.rightBoxImages.push({ url: image.url, number: image.number });
         image.checked = false;
+        this.checkedImages = 0;
         this.removeImageFromLeftBox(image);
       }
     }
+  }
+
+  //allow user to check only single image to drag and drop
+  addToCheckedItems($event:any) {
+    if (this.checkedImages === 0 && $event?.target?.checked) ++this.checkedImages;
+    else if(!$event?.target?.checked) --this.checkedImages;
   }
 
   // Event handler to allow dropping

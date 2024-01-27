@@ -8,7 +8,7 @@ export class AppService {
   constructor() {}
   imageSourse: string =
     'https://privacyterms.io/wp-content/uploads/terms-of-service-preview.png';
-    
+
   leftBoxImages: IImage[] = [
     {
       url: this.imageSourse,
@@ -56,17 +56,17 @@ export class AppService {
     {
       url: this.imageSourse,
       number: 9,
-      checked: true,
+      checked: false,
     },
     {
       url: this.imageSourse,
       number: 10,
-      checked: true,
+      checked: false,
     },
     {
       url: this.imageSourse,
       number: 11,
-      checked: true,
+      checked: false,
     },
   ];
 }

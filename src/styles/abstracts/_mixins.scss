@@ -1,0 +1,17 @@
+@mixin border-box {
+    box-sizing: border-box;
+  }
+  
+  @mixin flex-center {
+    display: flex;
+    align-items: center;
+  }
+  
+  @mixin image-container {
+    display: inline-block;
+    position: relative;
+  }
+  
+  @mixin box-shadow($color) {
+    box-shadow: 2px 7px $color;
+  }

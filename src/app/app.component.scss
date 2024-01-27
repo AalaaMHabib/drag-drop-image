@@ -1,53 +1,51 @@
+@import "../styles/abstracts/index";
 .card {
-  border: 5px solid #66798c;
+  border: 5px solid $primary-color;
   min-height: 95vh;
   display: flex;
   flex-wrap: wrap;
-  background-color: #66798c;
+  background-color: $primary-color;
   h3 {
-    color: #66798c;
+    color: $primary-color;
   }
 }
 
 .box {
-  box-sizing: border-box;
-  padding: 20px;
+  @include border-box;
+  padding: $card-padding;
 }
-.image-container{
-  display: inline-block;
-  position: relative;
- 
+.image-container {
+  @include image-container;
 }
-.container-left{
+.container-left {
   width: 25%;
 }
-.container-right{
+.container-right {
   width: 20%;
 }
-.number{
+.number {
   position: absolute;
-  border: 1px solid #09c;
-  background-color: #09c;
+  border: 1px solid $secondary-color;
+  background-color: $secondary-color;
   color: #fff;
-  
 }
-.number-left{
+.number-left {
   bottom: 4%;
   left: 3%;
-  padding: 10px
+  padding: 10px;
 }
-.number-right{
+.number-right {
   position: absolute;
-    bottom: 13%;
-    left: 10%;
+  bottom: 13%;
+  left: 10%;
 }
 img {
-  border: 1px solid #09c;
-  padding: 5px;
-  margin: 10px;
+  border: 1px solid $secondary-color;
+  padding: $image-padding;
+  margin: $image-margin;
 }
 .left-box {
-  flex: 2 1 65%;
+  flex: 2 1 $left-box-width;
   background-color: #fff;
   margin-right: 1%;
   img {
@@ -58,7 +56,7 @@ img {
   margin: 0 10px;
 }
 .right-box {
-  flex: 1 1 33%;
+  flex: 1 1 $right-box-width;
   background-color: #fff;
   margin-left: 1%;
   img {
@@ -66,31 +64,33 @@ img {
   }
 }
 .red-box {
-  background: #c54040;
+  background: $error-color;
   color: #fff;
   padding: 8px 10px;
   margin-bottom: 10px;
-  display: flex;
-  align-items: center;
+  @include flex-center;
 }
+
 .outline-red-box {
-  border: 1px solid #c54040;
-  color: #c54040;
+  border: 1px solid $error-color;
+  color: $error-color;
   padding: 8px 10px;
   margin-bottom: 10px;
-  display: flex;
-  align-items: center;
+  @include flex-center;
 }
+
 .box-card {
   border: 1px solid #abd7e5;
   background: #fff;
   padding: 10px;
-  box-shadow: 2px 7px #abd7e5;
+  @include box-shadow(#abd7e5);
 }
+
 h4 {
   color: #999;
 }
-@media (max-width: 768px) {
+
+@media (max-width: $breakpoint) {
   .left-box {
     flex: 1 1 100%;
     margin: 0;
@@ -100,10 +100,12 @@ h4 {
     flex: 1 1 100%;
     margin: 0;
   }
+
   .right-box img {
     width: 30% !important;
   }
-  .number{
+
+  .number {
     padding: 5px;
   }
 }

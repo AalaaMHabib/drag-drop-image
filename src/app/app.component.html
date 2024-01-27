@@ -5,13 +5,22 @@
     (dragover)="allowDrop($event)"
   >
     <h3>Unassociated</h3>
-    <div class="image-container container-left" *ngFor="let image of leftBoxImages">
+    <div
+      class="image-container container-left"
+      *ngFor="let image of leftBoxImages"
+    >
       <span class="number number-left">{{ image.number }}</span>
+      <input
+        type="checkbox"
+        class="image-checkbox"
+        [(ngModel)]="image.checked"
+      />
       <img
+      [ngStyle]="image.checked ? { background: '#999' } : {}"
         [src]="image.url"
         alt="document image"
         draggable="true"
-        (dragstart)="onDragStart($event, image.url, image.number)"
+        (dragstart)="onDragStart($event, image)"
       />
     </div>
   </div>
@@ -35,13 +44,16 @@
         {{ "Unassociated Document" | titlecase }}
       </div>
 
-      <div class="image-container container-right" *ngFor="let image of rightBoxImages">
+      <div
+        class="image-container container-right"
+        *ngFor="let image of rightBoxImages"
+      >
         <span class="number number-right">{{ image.number }}</span>
         <img
           [src]="image.url"
           alt="document image"
           draggable="true"
-          (dragstart)="onDragStart($event, image.url, image.number)"
+          (dragstart)="onDragStart($event, image)"
         />
       </div>
     </div>

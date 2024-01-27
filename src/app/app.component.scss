@@ -32,12 +32,18 @@
 .number-left {
   bottom: 4%;
   left: 3%;
-  padding: 10px;
+  padding: 5px;
 }
 .number-right {
   position: absolute;
   bottom: 13%;
   left: 10%;
+}
+.image-checkbox {
+  position: absolute;
+  height: 20px;
+  right: 6%;
+  left: 83%;
 }
 img {
   border: 1px solid $secondary-color;

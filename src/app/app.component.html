@@ -5,9 +5,10 @@
     (dragover)="allowDrop($event)"
   >
     <h3>Unassociated</h3>
-    <img 
+    <img
       *ngFor="let imageUrl of leftBoxImages"
       [src]="imageUrl"
+      alt="document image"
       draggable="true"
       (dragstart)="onDragStart($event, imageUrl)"
     />
@@ -18,12 +19,25 @@
     (dragover)="allowDrop($event)"
   >
     <h3>Associated</h3>
-    <img
-      width="100"
-      *ngFor="let imageUrl of rightBoxImages"
-      [src]="imageUrl"
-      draggable="true"
-      (dragstart)="onDragStart($event, imageUrl)"
-    />
+    <div class="box-card">
+      <h4>{{ "current load " | uppercase }}: 5554332111</h4>
+      <div class="red-box">
+        <mat-icon>help</mat-icon>
+        <span class="saperator">|</span>
+        {{ "missing poo" | titlecase }}
+      </div>
+      <div class="outline-red-box">
+        <mat-icon>description</mat-icon>
+        <span class="saperator">|</span>
+        {{ "Unassociated Document" | titlecase }}
+      </div>
+      <img
+        *ngFor="let imageUrl of rightBoxImages"
+        [src]="imageUrl"
+        alt="document image"
+        draggable="true"
+        (dragstart)="onDragStart($event, imageUrl)"
+      />
+    </div>
   </div>
 </section>

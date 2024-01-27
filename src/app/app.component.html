@@ -5,6 +5,7 @@
     (dragover)="allowDrop($event)"
   >
     <h3>Unassociated</h3>
+    <hr>
     <div
       class="image-container container-left"
       *ngFor="let image of leftBoxImages"
@@ -33,8 +34,10 @@
     (dragover)="allowDrop($event)"
   >
     <h3>Associated</h3>
+    <hr>
     <div class="box-card">
       <h4>{{ "current load " | uppercase }}: 5554332111</h4>
+      <hr>
       <div class="red-box">
         <mat-icon>help</mat-icon>
         <span class="saperator">|</span>

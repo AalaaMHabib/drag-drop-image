@@ -5,14 +5,17 @@
     (dragover)="allowDrop($event)"
   >
     <h3>Unassociated</h3>
-    <img
-      *ngFor="let imageUrl of leftBoxImages"
-      [src]="imageUrl"
-      alt="document image"
-      draggable="true"
-      (dragstart)="onDragStart($event, imageUrl)"
-    />
+    <div class="image-container container-left" *ngFor="let image of leftBoxImages">
+      <span class="number number-left">{{ image.number }}</span>
+      <img
+        [src]="image.url"
+        alt="document image"
+        draggable="true"
+        (dragstart)="onDragStart($event, image.url, image.number)"
+      />
+    </div>
   </div>
+
   <div
     class="box right-box"
     (drop)="onDrop($event, 'right')"
@@ -31,13 +34,16 @@
         <span class="saperator">|</span>
         {{ "Unassociated Document" | titlecase }}
       </div>
-      <img
-        *ngFor="let imageUrl of rightBoxImages"
-        [src]="imageUrl"
-        alt="document image"
-        draggable="true"
-        (dragstart)="onDragStart($event, imageUrl)"
-      />
+
+      <div class="image-container container-right" *ngFor="let image of rightBoxImages">
+        <span class="number number-right">{{ image.number }}</span>
+        <img
+          [src]="image.url"
+          alt="document image"
+          draggable="true"
+          (dragstart)="onDragStart($event, image.url, image.number)"
+        />
+      </div>
     </div>
   </div>
 </section>

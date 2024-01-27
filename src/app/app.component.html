@@ -57,13 +57,12 @@
         <input
           type="checkbox"
           class="image-checkbox"
+          disabled="true"
           [(ngModel)]="image.checked"
         />
         <img
           [src]="image.url"
           alt="document image"
-          draggable="true"
-          (dragstart)="onDragStart($event, image)"
         />
       </div>
     </div>

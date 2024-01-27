@@ -25,7 +25,7 @@ export class AppComponent implements OnInit {
   // Event handler for drag start
   onDragStart(
     event: DragEvent,
-    image: { url: string; number: number; checked?: boolean }
+    image: { url: string; number: number; checked?: boolean },
   ) {
     //the user can't drag-drop the image till checking the input box
     if (image.checked) {

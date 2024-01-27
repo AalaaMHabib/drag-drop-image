@@ -1,0 +1,29 @@
+<section class="card">
+  <div
+    class="box left-box"
+    (drop)="onDrop($event, 'left')"
+    (dragover)="allowDrop($event)"
+  >
+    <h3>Unassociated</h3>
+    <img 
+      *ngFor="let imageUrl of leftBoxImages"
+      [src]="imageUrl"
+      draggable="true"
+      (dragstart)="onDragStart($event, imageUrl)"
+    />
+  </div>
+  <div
+    class="box right-box"
+    (drop)="onDrop($event, 'right')"
+    (dragover)="allowDrop($event)"
+  >
+    <h3>Associated</h3>
+    <img
+      width="100"
+      *ngFor="let imageUrl of rightBoxImages"
+      [src]="imageUrl"
+      draggable="true"
+      (dragstart)="onDragStart($event, imageUrl)"
+    />
+  </div>
+</section>

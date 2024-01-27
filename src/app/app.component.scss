@@ -1,0 +1,52 @@
+.card {
+  border: 5px solid #66798c;
+  min-height: 95vh;
+  display: flex;
+  flex-wrap: wrap;
+  background-color: #66798c;
+  h3 {
+    color: #66798c;
+  }
+}
+
+.box {
+  box-sizing: border-box;
+  padding: 20px;
+}
+img {
+  border: 1px solid #09c;
+  padding: 5px;
+  margin: 10px;
+}
+.left-box {
+  flex: 2 1 65%;
+  background-color: #fff;
+  margin-right: 1%;
+  img {
+    width: 20%;
+  }
+}
+
+.right-box {
+  flex: 1 1 33%;
+  background-color: #fff;
+  margin-left: 1%;
+  img {
+    width: 40%;
+  }
+}
+
+@media (max-width: 768px) {
+  .left-box {
+    flex: 1 1 100%;
+    margin: 0;
+  }
+
+  .right-box {
+    flex: 1 1 100%;
+    margin: 0;
+  }
+  img{
+    width: 30% !important;
+  }
+}
